@@ -1,0 +1,8 @@
+#results .input-group-text {
+  width: 50%;
+}
+
+#results .input-group-text label {
+  width: 100%;
+  overflow: hidden;
+}
