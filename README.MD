@@ -34,6 +34,8 @@ With those numbers, the application will calculate and display to user:
 
 UI/UX elements: Spinning loader to simulate calculation, alert if application cannot calculate.
 
+See User Stories below for more information.
+
 ## Technologies Used
 
 - _HTML 5_
