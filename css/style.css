@@ -1,3 +1,5 @@
+/* Set a minimum width for input-group-text so they line up nicely */
+
 #loan-form .input-group-text {
   width: 8%;
 }
@@ -14,4 +16,9 @@
 #results .input-group-text label {
   width: 100%;
   overflow: hidden;
+}
+
+#loading,
+#results {
+  display: none;
 }

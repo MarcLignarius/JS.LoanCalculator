@@ -1,10 +1,16 @@
 // Listen for submit
-document
-  .getElementById('loan-form')
-  .addEventListener('submit', calculateResults);
+document.getElementById('loan-form').addEventListener('submit', function (e) {
+  // Hide results
+  document.getElementById('results').style.display = 'none';
+  // Show loader
+  document.getElementById('loading').style.display = 'block';
+  // Calculate results after 2 seconds
+  setTimeout(calculateResults, 2000);
+  e.preventDefault();
+});
 
 // Calculate results
-function calculateResults(e) {
+function calculateResults() {
   // UI Variables
   const amount = document.getElementById('amount');
   const interest = document.getElementById('interest');
@@ -25,14 +31,21 @@ function calculateResults(e) {
     monthlyPayment.value = monthly.toFixed(2);
     totalPayment.value = (monthly * calculatedPayments).toFixed(2);
     totalInterest.value = (monthly * calculatedPayments - principal).toFixed(2);
+    // Hide loader
+    document.getElementById('loading').style.display = 'none';
+    // Show results
+    document.getElementById('results').style.display = 'block';
   } else {
     showError('Please complete all fields. Thank you.');
   }
-  e.preventDefault();
 }
 
 // Show Error
 function showError(error) {
+  // Hide results
+  document.getElementById('results').style.display = 'none';
+  // Hide loader
+  document.getElementById('loading').style.display = 'none';
   // Create a div
   const errorDiv = document.createElement('div');
   // Get elements
@@ -44,6 +57,7 @@ function showError(error) {
   errorDiv.appendChild(document.createTextNode(error));
   // Insert error above card
   card.insertBefore(errorDiv, heading);
+
   // Clear error after 3 seconds
   setTimeout(clearError, 3000);
 }
